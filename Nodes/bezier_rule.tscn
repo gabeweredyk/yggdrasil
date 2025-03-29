@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://jnk8gb5ydi4a"]
+
+[ext_resource type="PackedScene" uid="uid://fdtuf6w43nll" path="res://Nodes/rule.tscn" id="1_sasj4"]
+[ext_resource type="PackedScene" uid="uid://blc6hvgpj632b" path="res://Nodes/bezier.tscn" id="2_dbfny"]
+
+[node name="Control" type="Node2D"]
+
+[node name="Rule" parent="." instance=ExtResource("1_sasj4")]
+
+[node name="CurveIn" parent="." instance=ExtResource("2_dbfny")]
+
+[node name="CurveOut" parent="." instance=ExtResource("2_dbfny")]

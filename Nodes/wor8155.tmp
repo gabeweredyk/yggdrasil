@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://beli25isofctl"]
+
+[ext_resource type="Script" path="res://Nodes/SentenceToBackgroudn.gd" id="1_iwe44"]
+[ext_resource type="Script" path="res://Scripts/MapCamera2D.gd" id="1_ntm5p"]
+[ext_resource type="PackedScene" uid="uid://cv5ogbi1qplcs" path="res://Nodes/branch.tscn" id="3_b257p"]
+[ext_resource type="PackedScene" uid="uid://b6s8sjx57xl1v" path="res://Nodes/editable_sentence.tscn" id="3_sausf"]
+[ext_resource type="PackedScene" uid="uid://s6ltq5ag2rqk" path="res://Nodes/input_handler.tscn" id="5_cx4he"]
+
+[node name="Workspace" type="Node2D"]
+script = ExtResource("1_iwe44")
+
+[node name="MapCamera2D" type="Camera2D" parent="."]
+script = ExtResource("1_ntm5p")
+zoom_min = 0.5
+zoom_max = 3.0
+pan_margin = 0.0
+pan_keyboard = false
+
+[node name="Editable Sentence" parent="." instance=ExtResource("3_sausf")]
+offset_left = 111.0
+offset_top = 59.0
+offset_right = 209.0
+offset_bottom = 106.0
+
+[node name="Editable Sentence2" parent="." instance=ExtResource("3_sausf")]
+offset_left = 10.0
+offset_top = 3.0
+offset_right = 108.0
+offset_bottom = 50.0
+
+[node name="Branch" parent="." instance=ExtResource("3_b257p")]
+offset_left = -345.0
+offset_top = 58.0
+offset_right = -248.0
+offset_bottom = 101.0
+
+[node name="InputHandler" parent="." instance=ExtResource("5_cx4he")]

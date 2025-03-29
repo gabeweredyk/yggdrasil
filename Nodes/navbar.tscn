@@ -1,0 +1,73 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtbnwn60h33pg"]
+
+[ext_resource type="Script" path="res://Scripts/UI/SaveManager.gd" id="1_vge2f"]
+[ext_resource type="Script" path="res://Scripts/UI/Options.gd" id="2_2wj85"]
+[ext_resource type="Script" path="res://Scripts/UI/Edit.gd" id="2_vb3yq"]
+
+[node name="Control" type="MenuBar"]
+offset_right = 399.0
+offset_bottom = 31.0
+
+[node name="File" type="PopupMenu" parent="."]
+title = "File"
+allow_search = false
+item_count = 4
+item_0/text = "Save"
+item_1/text = "Save As"
+item_1/id = 1
+item_2/text = "Load"
+item_2/id = 2
+item_3/text = "Reset"
+item_3/id = 3
+script = ExtResource("1_vge2f")
+
+[node name="SaveDialog" type="FileDialog" parent="File"]
+initial_position = 2
+size = Vector2i(500, 400)
+visible = true
+dialog_hide_on_ok = true
+access = 1
+filters = PackedStringArray("*.ygg")
+
+[node name="LoadDialog" type="FileDialog" parent="File"]
+title = "Open a File"
+initial_position = 2
+size = Vector2i(500, 400)
+visible = true
+ok_button_text = "Open"
+file_mode = 0
+access = 1
+filters = PackedStringArray("*.ygg")
+
+[node name="ResetDialog" type="ConfirmationDialog" parent="File"]
+title = ""
+initial_position = 2
+dialog_text = "Reset the current scene?"
+
+[node name="Edit" type="PopupMenu" parent="."]
+title = "File"
+item_count = 2
+item_0/text = "Add Sentence"
+item_1/text = "Add Branch"
+item_1/id = 1
+script = ExtResource("2_vb3yq")
+
+[node name="Options" type="PopupMenu" parent="."]
+title = "File"
+item_count = 3
+item_0/text = "Show Rule Dictionary"
+item_0/checkable = 1
+item_1/text = "Show Keypad"
+item_1/checkable = 1
+item_1/id = 1
+item_2/text = "Show Goals"
+item_2/checkable = 1
+item_2/id = 2
+script = ExtResource("2_2wj85")
+
+[connection signal="id_pressed" from="File" to="File" method="_on_id_pressed"]
+[connection signal="file_selected" from="File/SaveDialog" to="File" method="save_game"]
+[connection signal="file_selected" from="File/LoadDialog" to="File" method="load_game"]
+[connection signal="confirmed" from="File/ResetDialog" to="File" method="reset"]
+[connection signal="id_pressed" from="Edit" to="Edit" method="_on_press"]
+[connection signal="id_pressed" from="Options" to="Options" method="_on_id_pressed"]

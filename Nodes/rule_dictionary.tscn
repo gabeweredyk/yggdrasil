@@ -1,0 +1,64 @@
+[gd_scene load_steps=2 format=3 uid="uid://ciytpevfc15l5"]
+
+[ext_resource type="Script" path="res://Scripts/UI/RuleMenu.gd" id="1_1s7oa"]
+
+[node name="Rule Dictionary" type="MenuBar"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -360.0
+offset_bottom = 40.0
+grow_horizontal = 0
+script = ExtResource("1_1s7oa")
+
+[node name="Elim Rules" type="PopupMenu" parent="."]
+size = Vector2i(180, 197)
+allow_search = false
+item_count = 6
+item_0/text = "∧Elim"
+item_1/text = "∨ Elim"
+item_1/id = 1
+item_2/text = "¬ Elim"
+item_2/id = 2
+item_3/text = "→ Elim"
+item_3/id = 3
+item_4/text = "↔ Elim"
+item_4/id = 4
+item_5/text = "⊥ Elim"
+item_5/id = 5
+
+[node name="Intro Rules" type="PopupMenu" parent="."]
+size = Vector2i(180, 197)
+allow_search = false
+item_count = 6
+item_0/text = "∧Intro"
+item_1/text = "∨Intro"
+item_1/id = 1
+item_2/text = "¬ Intro"
+item_2/id = 2
+item_3/text = "→ Intro"
+item_3/id = 3
+item_4/text = "↔ Intro"
+item_4/id = 4
+item_5/text = "⊥ Intro"
+item_5/id = 5
+
+[node name="Decomposition Rules" type="PopupMenu" parent="."]
+size = Vector2i(180, 197)
+allow_search = false
+item_count = 6
+item_0/text = "Partial Decomp"
+item_1/text = "Full Decomp"
+item_1/id = 1
+item_2/text = "Alpha Decomp"
+item_2/id = 2
+item_3/text = "Beta Decomp"
+item_3/id = 3
+item_4/text = "Split"
+item_4/id = 4
+item_5/text = "Merge"
+item_5/id = 5
+
+[connection signal="id_pressed" from="Elim Rules" to="." method="_on_elim_pressed"]
+[connection signal="id_pressed" from="Intro Rules" to="." method="_on_intro_pressed"]
+[connection signal="id_pressed" from="Decomposition Rules" to="." method="_on_decomp_pressed"]

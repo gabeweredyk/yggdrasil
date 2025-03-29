@@ -1,0 +1,73 @@
+[gd_scene load_steps=3 format=3 uid="uid://upqxhi53t2k4"]
+
+[ext_resource type="Script" path="res://Scripts/UI/Keypad.gd" id="1_xrtiv"]
+[ext_resource type="FontFile" uid="uid://d2d7yogbkdogk" path="res://Assets/CambriaLogic.ttf" id="1_ynxin"]
+
+[node name="Keypad" type="HBoxContainer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -28.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("1_xrtiv")
+
+[node name="And" type="Button" parent="."]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ynxin")
+text = "&"
+icon_alignment = 1
+
+[node name="Or" type="Button" parent="."]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ynxin")
+text = "|"
+icon_alignment = 1
+
+[node name="Neg" type="Button" parent="."]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ynxin")
+text = "~"
+icon_alignment = 1
+
+[node name="Cond" type="Button" parent="."]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ynxin")
+text = "$"
+icon_alignment = 1
+
+[node name="Bicond" type="Button" parent="."]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ynxin")
+text = "%"
+icon_alignment = 1
+
+[node name="Contradiction" type="Button" parent="."]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ynxin")
+text = "^"
+icon_alignment = 1
+
+[node name="Tautology" type="Button" parent="."]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ynxin")
+text = "!"
+icon_alignment = 1
+
+[node name="Xor" type="Button" parent="."]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ynxin")
+text = "*"
+icon_alignment = 1
+
+[connection signal="button_down" from="And" to="." method="_button_pressed" binds= ["&"]]
+[connection signal="button_down" from="Or" to="." method="_button_pressed" binds= ["|"]]
+[connection signal="button_down" from="Neg" to="." method="_button_pressed" binds= ["~"]]
+[connection signal="button_down" from="Cond" to="." method="_button_pressed" binds= ["$"]]
+[connection signal="button_down" from="Bicond" to="." method="_button_pressed" binds= ["%"]]
+[connection signal="button_down" from="Contradiction" to="." method="_button_pressed" binds= ["^"]]
+[connection signal="button_down" from="Tautology" to="." method="_button_pressed" binds= ["!"]]

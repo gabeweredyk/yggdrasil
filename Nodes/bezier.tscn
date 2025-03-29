@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://blc6hvgpj632b"]
+
+[ext_resource type="Script" path="res://Scripts/Bezier.gd" id="1_01eda"]
+[ext_resource type="Texture2D" uid="uid://m6tgpyruhbb6" path="res://Assets/White_Circle.svg" id="2_7hh3r"]
+[ext_resource type="Texture2D" uid="uid://crji7m7spqjtu" path="res://Assets/White_triangle.svg" id="2_ntt2p"]
+
+[node name="BezierCurve" type="Node2D"]
+script = ExtResource("1_01eda")
+
+[node name="P0" type="Sprite2D" parent="."]
+texture = ExtResource("2_7hh3r")
+
+[node name="P1" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="P2" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 10.0
+offset_bottom = 10.0
+
+[node name="P3" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_ntt2p")

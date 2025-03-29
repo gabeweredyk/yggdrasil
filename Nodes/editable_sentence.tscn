@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=3 uid="uid://b6s8sjx57xl1v"]
+
+[ext_resource type="Script" path="res://Scripts/Sentence.gd" id="1_0pny3"]
+[ext_resource type="FontFile" uid="uid://d2d7yogbkdogk" path="res://Assets/CambriaLogic.ttf" id="1_iv57c"]
+
+[sub_resource type="Theme" id="Theme_77dwd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ob8l8"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2x3wl"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 1, 0, 1)
+
+[node name="Editable Sentence" type="PanelContainer" groups=["Sentences"]]
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 97.275
+offset_bottom = 49.0
+scale = Vector2(0.978, 1)
+theme = SubResource("Theme_77dwd")
+theme_override_styles/panel = SubResource("StyleBoxFlat_ob8l8")
+script = ExtResource("1_0pny3")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ColorRect" type="ColorRect" parent="PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="LineEdit" type="LineEdit" parent="PanelContainer/MarginContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("1_iv57c")
+theme_override_font_sizes/font_size = 24
+alignment = 1
+expand_to_text_length = true
+drag_and_drop_selection_enabled = false
+
+[node name="Highlight" type="PanelContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2x3wl")
+
+[node name="LeftCircles" type="Node2D" parent="."]
+position = Vector2(-10.2249, 22)
+
+[node name="RightCircles" type="Node2D" parent="."]
+position = Vector2(108.384, 27)
+
+[connection signal="text_changed" from="PanelContainer/MarginContainer/LineEdit" to="." method="_on_text_change"]

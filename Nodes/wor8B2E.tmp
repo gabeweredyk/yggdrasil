@@ -1,0 +1,130 @@
+[gd_scene load_steps=19 format=3 uid="uid://beli25isofctl"]
+
+[ext_resource type="Script" path="res://Scripts/MapCamera2D.gd" id="1_ntm5p"]
+[ext_resource type="PackedScene" uid="uid://cv5ogbi1qplcs" path="res://Nodes/branch.tscn" id="3_b257p"]
+[ext_resource type="PackedScene" uid="uid://b6s8sjx57xl1v" path="res://Nodes/editable_sentence.tscn" id="3_sausf"]
+[ext_resource type="PackedScene" uid="uid://s6ltq5ag2rqk" path="res://Nodes/input_handler.tscn" id="5_cx4he"]
+[ext_resource type="PackedScene" uid="uid://blc6hvgpj632b" path="res://Nodes/bezier.tscn" id="5_tm7wh"]
+[ext_resource type="PackedScene" uid="uid://fdtuf6w43nll" path="res://Nodes/rule.tscn" id="6_pvk1e"]
+[ext_resource type="Script" path="res://Scripts/Rules/AndElim.gd" id="7_onsqo"]
+[ext_resource type="Script" path="res://Scripts/Rules/OrIntro.gd" id="8_ufhib"]
+[ext_resource type="Script" path="res://Scripts/Rules/AndIntro.gd" id="9_6ohou"]
+[ext_resource type="Script" path="res://Scripts/Rules/OrElim.gd" id="10_dvmtb"]
+[ext_resource type="Script" path="res://Scripts/Rules/BiconditionalElim.gd" id="10_g24xh"]
+[ext_resource type="Script" path="res://Scripts/Rules/ModusPonens.gd" id="10_skdek"]
+[ext_resource type="Script" path="res://Scripts/Rules/ContradictionIntro.gd" id="11_oeuef"]
+[ext_resource type="Script" path="res://Scripts/Rules/ContradictionElimination.gd" id="12_37m77"]
+[ext_resource type="Script" path="res://Scripts/Rules/DoubleNegation.gd" id="13_7ex53"]
+[ext_resource type="Script" path="res://Scripts/Rules/ConditionalIntro.gd" id="13_i3k03"]
+[ext_resource type="Script" path="res://Scripts/Rules/NegationIntro.gd" id="13_l6mft"]
+[ext_resource type="Script" path="res://Scripts/Rules/BiconditionalIntro.gd" id="16_sx5pg"]
+
+[node name="Workspace" type="Node2D"]
+
+[node name="Editable Sentence" parent="." instance=ExtResource("3_sausf")]
+offset_left = -302.0
+offset_top = 35.0
+offset_right = -205.725
+offset_bottom = 82.0
+
+[node name="Branch" parent="." instance=ExtResource("3_b257p")]
+offset_left = -128.0
+offset_top = 120.0
+offset_right = -31.0
+offset_bottom = 163.0
+
+[node name="InputHandler" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("5_cx4he")]
+camera = NodePath("../MapCamera2D")
+
+[node name="MapCamera2D" type="Camera2D" parent="."]
+script = ExtResource("1_ntm5p")
+zoom_min = 0.5
+zoom_max = 3.0
+pan_margin = 0.0
+pan_keyboard = false
+
+[node name="BezierCurve" parent="." instance=ExtResource("5_tm7wh")]
+
+[node name="& Elim" parent="." instance=ExtResource("6_pvk1e")]
+offset_left = 11.0
+offset_top = -147.0
+offset_right = 100.0
+offset_bottom = -109.0
+script = ExtResource("7_onsqo")
+
+[node name="| Intro" parent="." instance=ExtResource("6_pvk1e")]
+offset_left = 149.0
+offset_top = -90.0
+offset_right = 238.0
+offset_bottom = -52.0
+script = ExtResource("8_ufhib")
+
+[node name="& Intro" parent="." instance=ExtResource("6_pvk1e")]
+offset_left = 147.0
+offset_top = -147.0
+offset_right = 236.0
+offset_bottom = -109.0
+script = ExtResource("9_6ohou")
+
+[node name="| Elim" parent="." instance=ExtResource("6_pvk1e")]
+offset_left = 13.0
+offset_top = -88.0
+offset_right = 102.0
+offset_bottom = -50.0
+script = ExtResource("10_dvmtb")
+
+[node name="Bi Elim" parent="." instance=ExtResource("6_pvk1e")]
+offset_left = 20.0
+offset_top = 101.0
+offset_right = 109.0
+offset_bottom = 139.0
+script = ExtResource("10_g24xh")
+
+[node name="Modus Ponens" parent="." instance=ExtResource("6_pvk1e")]
+offset_left = 14.0
+offset_top = -24.0
+offset_right = 103.0
+offset_bottom = 14.0
+script = ExtResource("10_skdek")
+
+[node name="^ Intro" parent="." instance=ExtResource("6_pvk1e")]
+offset_left = 161.0
+offset_top = 156.0
+offset_right = 250.0
+offset_bottom = 194.0
+script = ExtResource("11_oeuef")
+
+[node name="^ Elim" parent="." instance=ExtResource("6_pvk1e")]
+offset_left = 21.0
+offset_top = 163.0
+offset_right = 110.0
+offset_bottom = 201.0
+script = ExtResource("12_37m77")
+
+[node name="~ Intro" parent="." instance=ExtResource("6_pvk1e")]
+offset_left = 155.0
+offset_top = 36.0
+offset_right = 244.0
+offset_bottom = 74.0
+script = ExtResource("13_l6mft")
+
+[node name="Bi Intro" parent="." instance=ExtResource("6_pvk1e")]
+offset_left = 155.0
+offset_top = 92.0
+offset_right = 244.0
+offset_bottom = 130.0
+script = ExtResource("16_sx5pg")
+
+[node name="$ Intro" parent="." instance=ExtResource("6_pvk1e")]
+offset_left = 151.0
+offset_top = -27.0
+offset_right = 240.0
+offset_bottom = 11.0
+script = ExtResource("13_i3k03")
+
+[node name="Double Negation" parent="." instance=ExtResource("6_pvk1e")]
+offset_left = 19.0
+offset_top = 40.0
+offset_right = 108.0
+offset_bottom = 78.0
+script = ExtResource("13_7ex53")

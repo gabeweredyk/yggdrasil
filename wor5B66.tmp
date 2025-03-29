@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://beli25isofctl"]
+
+[ext_resource type="Script" path="res://MapCamera2D.gd" id="1_ntm5p"]
+[ext_resource type="Texture2D" uid="uid://bimcugb2r7uos" path="res://icon.svg" id="2_hyl3k"]
+[ext_resource type="PackedScene" uid="uid://b6s8sjx57xl1v" path="res://editable_sentence.tscn" id="3_sausf"]
+
+[sub_resource type="Environment" id="Environment_21nkq"]
+
+[sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_vc2xo"]
+
+[node name="Workspace" type="Node2D"]
+
+[node name="MapCamera2D" type="Camera2D" parent="."]
+script = ExtResource("1_ntm5p")
+pan_margin = 0.0
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(-51, -56)
+texture = ExtResource("2_hyl3k")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_21nkq")
+camera_attributes = SubResource("CameraAttributesPhysical_vc2xo")
+
+[node name="Editable Sentence" parent="." instance=ExtResource("3_sausf")]
+position = Vector2(56, 31)

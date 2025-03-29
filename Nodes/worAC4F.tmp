@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://beli25isofctl"]
+
+[ext_resource type="Script" path="res://Scripts/MapCamera2D.gd" id="1_ntm5p"]
+[ext_resource type="PackedScene" uid="uid://cv5ogbi1qplcs" path="res://Nodes/branch.tscn" id="3_b257p"]
+[ext_resource type="PackedScene" uid="uid://s6ltq5ag2rqk" path="res://Nodes/input_handler.tscn" id="5_cx4he"]
+[ext_resource type="PackedScene" uid="uid://upqxhi53t2k4" path="res://Nodes/keypad.tscn" id="5_ef5h3"]
+[ext_resource type="PackedScene" uid="uid://dtbnwn60h33pg" path="res://Nodes/navbar.tscn" id="5_s2gbp"]
+[ext_resource type="PackedScene" uid="uid://ciytpevfc15l5" path="res://Nodes/rule_dictionary.tscn" id="6_w5wmt"]
+[ext_resource type="PackedScene" uid="uid://bssxtrbt776q0" path="res://Nodes/goals.tscn" id="7_1vfre"]
+
+[node name="Workspace" type="Node2D"]
+
+[node name="Branch" parent="." instance=ExtResource("3_b257p")]
+offset_left = -29.0
+offset_top = 100.0
+offset_right = 68.0
+offset_bottom = 143.0
+
+[node name="InputHandler" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("5_cx4he")]
+camera = NodePath("../MapCamera2D")
+
+[node name="MapCamera2D" type="Camera2D" parent="."]
+script = ExtResource("1_ntm5p")
+zoom_min = 0.5
+zoom_max = 3.0
+pan_margin = 0.0
+pan_keyboard = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Keypad" parent="CanvasLayer" instance=ExtResource("5_ef5h3")]
+offset_left = -202.0
+offset_top = -36.0
+offset_right = -14.0
+offset_bottom = -8.0
+
+[node name="Control" parent="CanvasLayer" instance=ExtResource("5_s2gbp")]
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 1.0
+offset_bottom = -1.0
+
+[node name="Rule Dictionary" parent="CanvasLayer" instance=ExtResource("6_w5wmt")]
+
+[node name="Goals" parent="CanvasLayer" instance=ExtResource("7_1vfre")]

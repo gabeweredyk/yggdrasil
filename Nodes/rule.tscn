@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://fdtuf6w43nll"]
+
+[ext_resource type="Script" path="res://Scripts/Rule.gd" id="1_kp8cs"]
+[ext_resource type="FontFile" uid="uid://d2d7yogbkdogk" path="res://Assets/CambriaLogic.ttf" id="2_7y30j"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2n6f4"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_appwk"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uaaud"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 1, 0, 1)
+
+[node name="Rule" type="PanelContainer"]
+offset_right = 89.0
+offset_bottom = 38.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_2n6f4")
+script = ExtResource("1_kp8cs")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_appwk")
+
+[node name="ColorRect" type="ColorRect" parent="PanelContainer"]
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="PanelContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_7y30j")
+theme_override_font_sizes/font_size = 32
+text = "& Elim"
+
+[node name="Highlight" type="PanelContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_uaaud")
+
+[node name="LeftCircles" type="Node2D" parent="."]
+position = Vector2(-10.2249, 22)
+
+[node name="RightCircles" type="Node2D" parent="."]
+position = Vector2(108.384, 27)

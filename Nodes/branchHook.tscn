@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmjo3dlcjk27x"]
+
+[ext_resource type="Texture2D" uid="uid://m6tgpyruhbb6" path="res://Assets/White_Circle.svg" id="1_lptj0"]
+[ext_resource type="Script" path="res://Scripts/BranchHook.gd" id="2_ekx4h"]
+
+[node name="BranchHook" type="Sprite2D"]
+texture = ExtResource("1_lptj0")
+script = ExtResource("2_ekx4h")

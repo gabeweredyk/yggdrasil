@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://30n3lmbnolpd"]
+
+[ext_resource type="Texture2D" uid="uid://m6tgpyruhbb6" path="res://Assets/White_Circle.svg" id="1_5t40i"]
+[ext_resource type="Script" path="res://Scripts/Hook.gd" id="2_8mm8s"]
+
+[node name="Hook" type="Sprite2D"]
+texture = ExtResource("1_5t40i")
+script = ExtResource("2_8mm8s")
+radius = -50.0
